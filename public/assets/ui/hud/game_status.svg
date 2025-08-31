@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="80" viewBox="0 0 300 80">
+  <!-- Level Indicator -->
+  <g transform="translate(0,0)">
+    <!-- Background -->
+    <rect x="10" y="10" width="130" height="60" rx="10" fill="#212121" opacity="0.8" />
+    
+    <!-- Level Label -->
+    <text x="30" y="45" font-family="Arial" font-size="20" fill="#BDBDBD" text-anchor="start">LEVEL</text>
+    
+    <!-- Level Number -->
+    <text x="100" y="45" font-family="Arial Black" font-size="24" fill="#2196F3" text-anchor="middle" class="level-number">1</text>
+  </g>
+  
+  <!-- Shots Remaining -->
+  <g transform="translate(150,0)">
+    <!-- Background -->
+    <rect x="10" y="10" width="130" height="60" rx="10" fill="#212121" opacity="0.8" />
+    
+    <!-- Shots Icons -->
+    <g class="shots-container">
+      <circle cx="40" cy="40" r="8" fill="#F44336" class="shot active" />
+      <circle cx="65" cy="40" r="8" fill="#F44336" class="shot active" />
+      <circle cx="90" cy="40" r="8" fill="#F44336" class="shot active" />
+      <circle cx="115" cy="40" r="8" fill="#757575" class="shot inactive" />
+      <circle cx="140" cy="40" r="8" fill="#757575" class="shot inactive" />
+    </g>
+  </g>
+  
+  <!-- Animation Classes -->
+  <style>
+    .level-number.changed {
+      animation: bounce 0.5s ease-in-out;
+    }
+    .shot.used {
+      animation: fade 0.3s ease-out forwards;
+    }
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes fade {
+      from { fill: #F44336; }
+      to { fill: #757575; }
+    }
+  </style>
+</svg>

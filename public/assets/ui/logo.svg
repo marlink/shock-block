@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="120" viewBox="0 0 400 120">
+  <!-- Background Shape -->
+  <path d="M20 20 L380 20 L360 100 L40 100 Z" fill="#673AB7" />
+  
+  <!-- Main Text -->
+  <text x="200" y="70" font-family="Arial Black" font-size="48" fill="white" text-anchor="middle">
+    MAMBA KICK
+  </text>
+  
+  <!-- Decorative Elements -->
+  <circle cx="100" cy="60" r="8" fill="#FFD700" />
+  <circle cx="300" cy="60" r="8" fill="#FFD700" />
+  
+  <!-- Underline Effect -->
+  <path d="M80 80 L320 80" stroke="#FFD700" stroke-width="4" stroke-linecap="round" />
+  
+  <!-- Shine Effect -->
+  <path d="M40 30 L360 30" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
+</svg>
