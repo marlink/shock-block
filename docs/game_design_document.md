@@ -315,3 +315,7 @@ Appendix B — Acceptance Checklist per Phase (abbrev)
   - Pass: PH-P-03/04, PH-N-01/02, GS-P-03/04, UI-P-03, PE-P-01..03
 - Phase 4:
   - Mobile passes of core flows with acceptable FPS
+
+**Physics Terms Explained:**
+- **Continuous Collision Detection (CCD):** CCD is a physics technique used to prevent fast-moving objects (like the ball) from passing through other objects without detecting a collision. In this game, enabling "bullet" mode for the ball activates CCD, ensuring that even at high speeds, the ball will reliably hit blocks instead of tunneling through them. For example, if the player fires the ball at maximum power, CCD will check for collisions at smaller intervals so no block is missed.
+- **Sub-stepping:** Sub-stepping divides each physics update into smaller steps when objects move very quickly. This increases accuracy for collision detection and physics calculations. In practice, if the ball's velocity exceeds a certain threshold, the physics engine will process multiple mini-steps per frame, making sure collisions are detected and resolved correctly. For instance, when a powerful shot is fired, sub-stepping helps ensure the ball interacts with all blocks it touches, even if moving rapidly.

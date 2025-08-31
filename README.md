@@ -1,18 +1,20 @@
-# Phaser Vite TypeScript Template
+# Mamba Kick - Precision Physics Game
 
-This is a Phaser 3 project template that uses Vite for bundling. It supports hot-reloading for quick development workflow, includes TypeScript support and scripts to generate production-ready builds.
+[![Build Status](https://img.shields.io/github/actions/workflow/status/mamba-kick/mamba-kick/deploy.yml?branch=main)](https://github.com/mamba-kick/mamba-kick/actions)
+[![Coverage Status](https://img.shields.io/codecov/c/github/mamba-kick/mamba-kick/main.svg)](https://codecov.io/gh/mamba-kick/mamba-kick)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Version](https://img.shields.io/github/v/release/mamba-kick/mamba-kick)](https://github.com/mamba-kick/mamba-kick/releases)
 
-**[This Template is also available as a JavaScript version.](https://github.com/phaserjs/template-vite)**
+A precision-based physics game where players strategically destroy blocks using calculated shots. Built with Phaser 3 and TypeScript.
 
-### Versions
+**Based on [Phaser Vite TypeScript Template](https://github.com/phaserjs/template-vite)**
 
-This template has been updated for:
-
-- [Phaser 3.90.0](https://github.com/phaserjs/phaser)
-- [Vite 6.3.1](https://github.com/vitejs/vite)
-- [TypeScript 5.7.2](https://github.com/microsoft/TypeScript)
-
-![screenshot](screenshot.png)
+### Technology Stack
+- [Phaser 3.90.0](https://github.com/phaserjs/phaser) - Game framework
+- [Vite 6.3.1](https://github.com/vitejs/vite) - Build tool
+- [TypeScript 5.7.2](https://github.com/microsoft/TypeScript) - Type safety
+- [Matter.js](https://brm.io/matter-js/) - Physics engine
+- [Neon Database](https://neon.tech) - Cloud database
 
 ## Requirements
 
@@ -40,119 +42,227 @@ Once the server is running you can edit any of the files in the `src` folder. Vi
 
 We have provided a default project structure to get you started. This is as follows:
 
-## Template Project Structure
+## 🎮 Game Overview
 
-We have provided a default project structure to get you started:
+Mamba Kick is a physics-driven puzzle game that challenges players to clear levels by strategically destroying blocks with precise shots. The game combines realistic physics simulation with strategic gameplay mechanics.
 
-| Path                         | Description                                                |
-|------------------------------|------------------------------------------------------------|
-| `index.html`                 | A basic HTML page to contain the game.                     |
-| `public/assets`              | Game sprites, audio, etc. Served directly at runtime.      |
-| `public/style.css`           | Global layout styles.                                      |
-| `src/main.ts`                | Application bootstrap.                                     |
-| `src/game`                   | Folder containing the game code.                           |
-| `src/game/main.ts`           | Game entry point: configures and starts the game.          |
-| `src/game/scenes`            | Folder with all Phaser game scenes.                        | 
+### Key Features
+- **Realistic Physics**: Powered by Matter.js for authentic collision detection and force calculations
+- **Strategic Gameplay**: Multiple block types with unique destruction mechanics
+- **Progressive Difficulty**: 50+ levels with increasing complexity
+- **Performance Optimized**: 60 FPS target across all devices
+- **Cross-Platform**: Playable on desktop and mobile browsers
 
+## 🚀 Quick Start
 
-## Handling Assets
+### Prerequisites
+- Node.js 18+ and npm
+- Git
+- Modern web browser
 
-Vite supports loading assets via JavaScript module `import` statements.
-
-This template provides support for both embedding assets and also loading them from a static folder. To embed an asset, you can import it at the top of the JavaScript file you are using it in:
-
-```js
-import logoImg from './assets/logo.png'
-```
-
-To load static files such as audio files, videos, etc place them into the `public/assets` folder. Then you can use this path in the Loader calls within Phaser:
-
-```js
-preload ()
-{
-    //  This is an example of an imported bundled image.
-    //  Remember to import it at the top of this file
-    this.load.image('logo', logoImg);
-
-    //  This is an example of loading a static image
-    //  from the public/assets folder:
-    this.load.image('background', 'assets/bg.png');
-}
-```
-
-When you issue the `npm run build` command, all static assets are automatically copied to the `dist/assets` folder.
-
-## Deploying to Production
-
-After you run the `npm run build` command, your code will be built into a single bundle and saved to the `dist` folder, along with any other assets your project imported, or stored in the public assets folder.
-
-In order to deploy your game, you will need to upload *all* of the contents of the `dist` folder to a public facing web server.
-
-## Customizing the Template
-
-### Vite
-
-If you want to customize your build, such as adding plugin (i.e. for loading CSS or fonts), you can modify the `vite/config.*.mjs` file for cross-project changes, or you can modify and/or create new configuration files and target them in specific npm tasks inside of `package.json`. Please see the [Vite documentation](https://vitejs.dev/) for more information.
-
-## About log.js
-
-If you inspect our node scripts you will see there is a file called `log.js`. This file makes a single silent API call to a domain called `gryzor.co`. This domain is owned by Phaser Studio Inc. The domain name is a homage to one of our favorite retro games.
-
-We send the following 3 pieces of data to this API: The name of the template being used (vue, react, etc). If the build was 'dev' or 'prod' and finally the version of Phaser being used.
-
-At no point is any personal data collected or sent. We don't know about your project files, device, browser or anything else. Feel free to inspect the `log.js` file to confirm this.
-
-Why do we do this? Because being open source means we have no visible metrics about which of our templates are being used. We work hard to maintain a large and diverse set of templates for Phaser developers and this is our small anonymous way to determine if that work is actually paying off, or not. In short, it helps us ensure we're building the tools for you.
-
-However, if you don't want to send any data, you can use these commands instead:
-
-Dev:
+### Installation
 
 ```bash
-npm run dev-nolog
+# Clone the repository
+git clone https://github.com/mamba-kick/mamba-kick.git
+cd mamba-kick
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Open in browser
+open http://localhost:8080
 ```
 
-Build:
+### Build for Production
 
 ```bash
-npm run build-nolog
+# Build optimized bundle
+npm run build
+
+# Run tests
+npm test
+
+# Deploy to staging
+npm run deploy:staging
+
+# Deploy to production
+npm run deploy:production
 ```
 
-Or, to disable the log entirely, simply delete the file `log.js` and remove the call to it in the `scripts` section of `package.json`:
+## 📁 Project Structure
 
-Before:
-
-```json
-"scripts": {
-    "dev": "node log.js dev & dev-template-script",
-    "build": "node log.js build & build-template-script"
-},
+```
+mamba-kick/
+├── src/
+│   ├── game/
+│   │   ├── systems/           # Core game systems
+│   │   │   ├── InputSystem.ts    # Input handling and validation
+│   │   │   ├── ShotSystem.ts     # Shot mechanics and physics
+│   │   │   ├── AimSystem.ts      # Aiming and targeting
+│   │   │   ├── BlockSystem.ts    # Block management and destruction
+│   │   │   ├── PhysicsManager.ts # Physics configuration
+│   │   │   ├── ParticleSystem.ts # Visual effects
+│   │   │   ├── LevelService.ts   # Level loading and progression
+│   │   │   └── SaveService.ts    # Save/load functionality
+│   │   ├── entities/          # Game entities
+│   │   ├── scenes/            # Phaser scenes
+│   │   └── config/            # Game configuration
+│   ├── ui/                  # User interface components
+│   ├── utils/               # Utility functions
+│   └── types/               # TypeScript type definitions
+├── docs/                    # Documentation
+├── tests/                   # Test files
+├── public/                  # Static assets
+└── dist/                    # Build output
 ```
 
-After:
+## 🏗️ Architecture
 
-```json
-"scripts": {
-    "dev": "dev-template-script",
-    "build": "build-template-script"
-},
+### Core Systems
+
+#### Input System (`src/game/systems/InputSystem.ts`)
+Handles all player input with advanced features:
+- **Input buffering** for responsive controls
+- **Cooldown system** to prevent spam
+- **Validation** for edge cases
+- **Mobile support** for touch devices
+
+#### Shot System (`src/game/systems/ShotSystem.ts`)
+Manages shot mechanics and physics:
+- **Force calculation** based on charge time
+- **Trajectory prediction** for aiming
+- **Collision detection** with blocks
+- **Physics integration** with Matter.js
+
+#### Block System (`src/game/systems/BlockSystem.ts`)
+Handles block lifecycle and destruction:
+- **Multiple block types** (normal, multiplier, explosive)
+- **Destruction thresholds** based on force
+- **Particle effects** on destruction
+- **Score calculation** and updates
+
+#### Physics Manager (`src/game/systems/PhysicsManager.ts`)
+Configures and manages physics simulation:
+- **Matter.js integration** for realistic physics
+- **Performance optimization** settings
+- **Collision filtering** for efficiency
+- **Debug mode** for development
+
+## 🧪 Development
+
+### Development Setup
+
+```bash
+# Install development dependencies
+npm install --include=dev
+
+# Start development server with hot reload
+npm run dev
+
+# Run in debug mode
+npm run dev:debug
+
+# Run with physics debug visualization
+npm run dev:physics-debug
 ```
 
-Either of these will stop `log.js` from running. If you do decide to do this, please could you at least join our Discord and tell us which template you're using! Or send us a quick email. Either will be super-helpful, thank you.
+### Available Scripts
 
-## Join the Phaser Community!
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm test` | Run all tests |
+| `npm run test:watch` | Run tests in watch mode |
+| `npm run lint` | Run ESLint |
+| `npm run lint:fix` | Auto-fix ESLint issues |
+| `npm run type-check` | Run TypeScript checks |
+| `npm run analyze` | Bundle size analysis |
 
-We love to see what developers like you create with Phaser! It really motivates us to keep improving. So please join our community and show-off your work 😄
+### Testing
 
-**Visit:** The [Phaser website](https://phaser.io) and follow on [Phaser Twitter](https://twitter.com/phaser_)<br />
-**Play:** Some of the amazing games [#madewithphaser](https://twitter.com/search?q=%23madewithphaser&src=typed_query&f=live)<br />
-**Learn:** [API Docs](https://newdocs.phaser.io), [Support Forum](https://phaser.discourse.group/) and [StackOverflow](https://stackoverflow.com/questions/tagged/phaser-framework)<br />
-**Discord:** Join us on [Discord](https://discord.gg/phaser)<br />
-**Code:** 2000+ [Examples](https://labs.phaser.io)<br />
-**Read:** The [Phaser World](https://phaser.io/community/newsletter) Newsletter<br />
+#### Running Tests
+```bash
+# Run all tests
+npm test
 
-Created by [Phaser Studio](mailto:support@phaser.io). Powered by coffee, anime, pixels and love.
+# Run specific test suite
+npm test -- --testNamePattern="InputSystem"
 
-The Phaser logo and characters are &copy; 2011 - 2025 Phaser Studio Inc.
+# Run tests with coverage
+npm run test:coverage
 
-All rights reserved.
+# Run E2E tests
+npm run test:e2e
+```
+
+## 🎯 Game Mechanics
+
+### Block Types
+
+| Type | Health | Points | Special Effect |
+|------|--------|----------|----------------|
+| **Normal** | 50 | 10 | Standard destruction |
+| **Multiplier** | 100 | 50 | 2x score multiplier |
+| **Explosive** | 75 | 25 | Destroys nearby blocks |
+| **Indestructible** | ∞ | 0 | Cannot be destroyed |
+
+### Scoring System
+- **Base points**: 10 per block
+- **Combo multiplier**: +10% per consecutive block
+- **Accuracy bonus**: +25% for precise shots
+- **Time bonus**: Up to +50% for fast completion
+
+## 📊 Performance
+
+### Targets
+- **60 FPS** on desktop
+- **30 FPS** on mobile
+- **<100ms** input response time
+- **<50MB** memory usage
+
+## 📋 Documentation
+
+### Available Documentation
+- **[Technical Guide](docs/technical_implementation_guide.md)** - Implementation details
+- **[Testing Protocol](docs/testing_protocol.md)** - Testing procedures
+- **[Deployment Guide](docs/deployment_guide.md)** - Deployment procedures
+- **[Troubleshooting Guide](docs/troubleshooting_guide.md)** - Common issues and solutions
+- **[Development Checklist](docs/development_checklist.md)** - Development milestones
+- **[API Reference](docs/api_reference.md)** - API documentation
+
+## 🤝 Contributing
+
+### Development Workflow
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open** a Pull Request
+
+### Code Standards
+- **TypeScript** with strict mode enabled
+- **ESLint** configuration with Prettier
+- **Conventional commits** for clear history
+- **Unit tests** for all new features
+- **Documentation** for complex systems
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **Phaser.js** - Game framework
+- **Matter.js** - Physics engine
+- **TypeScript** - Type safety
+- **Neon Database** - Cloud database
+- **Phaser Studio** - Original template
+
+---
+
+**Made with ❤️ by the Mamba Kick Team**
